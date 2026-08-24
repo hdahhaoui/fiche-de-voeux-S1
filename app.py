@@ -334,11 +334,9 @@ if nav == "📝 Exprimer mes Vœux (Enseignant)":
         st.subheader("1. Identification de l'Enseignant")
         c1, c2, c3 = st.columns(3)
         with c1:
-            nom_prenom = st.text_input("Nom & Prénom *", placeholder="Ex: Dr. Dahhaoui Hachimi")
+            nom_prenom = st.text_input("Nom & Prénom *", placeholder="")
         with c2:
-            email = st.text_input("Email Institutionnel *", placeholder="h.dahhaoui@univ-tlemcen.dz")
-        with c3:
-            quota_cible = st.selectbox("Volume Cible Réglementaire", [9.0, 12.0, 6.0], format_func=lambda x: f"{x}h / semaine")
+            email = st.text_input("Email *", placeholder="")
 
         st.markdown("---")
 
@@ -428,8 +426,8 @@ if nav == "📝 Exprimer mes Vœux (Enseignant)":
         # 6. Remarques, souhaits particuliers & Indisponibilités
         st.subheader("4. 💬 Souhaits Particuliers, Contraintes & Remarques")
         commentaires = st.text_area(
-            "Exprimez ici un souhait particulier (ex: regroupement de cours, projet de recherche associé, proposition de permutation avec un collègue...) :",
-            placeholder="Ex: Je souhaite dispenser les séances de TD de BA1 en matinée, ou je propose de permuter avec Dr. X pour le module Y..."
+            "Exprimez ici un souhait particulier",
+            placeholder=""
         )
 
         submitted = st.form_submit_button("🚀 Valider et Transmettre Définitivement mes Vœux", use_container_width=True)
