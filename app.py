@@ -301,7 +301,7 @@ st.markdown('<div class="sub-title">Plateforme collaborative d\'expression des v
 nav = st.sidebar.radio("Espace de Travail", ["📝 Exprimer mes Vœux (Enseignant)", "🔐 Clôture & Arbitrage (Responsable)"])
 
 # URL Google Apps Script Webhook (À remplacer par votre URL exacte)
-GOOGLE_SHEET_WEBHOOK = "https://script.google.com/macros/s/AKfycbz_EXEMPLE_GOOGLE_SHEET/exec"
+GOOGLE_SHEET_WEBHOOK = "https://script.google.com/macros/s/AKfycbzT__iJP_nhS8OV9bNzWsXxvk5eiPKG9dWLlNQWPX1AGiVeMBRddFet4WVxmrXHdMvz1w/exec"
 
 def send_to_google_sheet(payload):
     try:
