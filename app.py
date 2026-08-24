@@ -320,7 +320,7 @@ if "submissions_feed" not in st.session_state:
 # EN-TÊTE & NAVIGATION
 # -------------------------------------------------------------
 st.markdown('<div class="main-title">🏛️ Département de Génie Civil — Université de Tlemcen</div>', unsafe_allow_html=True)
-st.markdown('<div class="sub-title">Plateforme collaborative d'expression des vœux et répartition des charges pédagogiques</div>', unsafe_allow_html=True)
+st.markdown('<div class="sub-title">Plateforme collaborative dexpression des vœux et répartition des charges pédagogiques</div>', unsafe_allow_html=True)
 
 nav = st.sidebar.radio("Espace de Travail", ["📝 Exprimer mes Vœux (Enseignant)", "🔐 Clôture & Arbitrage (Responsable)"])
 
