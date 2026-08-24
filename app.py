@@ -352,7 +352,7 @@ if nav == "📝 Exprimer mes Vœux (Enseignant)":
         else:
             st.info("Aucune soumission pour le moment.")
 
-    with st.form("form_voeux_departement"):
+
         st.subheader("1. Identification de l'Enseignant")
         c1, c2 = st.columns(2)
         with c1:
@@ -452,9 +452,8 @@ if nav == "📝 Exprimer mes Vœux (Enseignant)":
         st.subheader("4. 💬 Souhaits Particuliers & Remarques")
         commentaires = st.text_area("Observations éventuelles :")
 
-        submitted = st.form_submit_button("🚀 Valider et Transmettre Définitivement mes Vœux", use_container_width=True)
-
-        if submitted:
+        if st.button("🚀 Valider et Transmettre Définitivement mes Vœux", use_container_width=True, type="primary"):
+        
             if not nom_prenom or not email:
                 st.error("❌ Veuillez renseigner votre Nom, Prénom et Email Institutionnel.")
             elif choix_1 == "-- Aucun choix --" or choix_2 == "-- Aucun choix --":
