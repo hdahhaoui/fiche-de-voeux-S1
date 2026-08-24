@@ -439,7 +439,7 @@ if nav == "📝 Exprimer mes Vœux (Enseignant)":
             <h4 style="margin:0 0 6px 0; color:#1e40af;">🚀 Focus Valorisation Pédagogique — Atelier Reverse Engineering (M2)</h4>
             <p style="margin:0; font-size:13px; color:#1e293b; line-height:1.5;">
                 Le module <strong>Reverse Engineering (Cours + Atelier)</strong> est dispensé en M2 Structures, M2 VOA et M2 RIB.
-                <br>🎯 <em>Avantages :</em> Priorité d'arbitrage sur vos créneaux d'emploi du temps et sur l'encadrement des projets de fin d'études (PFE) Master.
+                <br>🎯 <em>Opportunité :</em> Discipline d'avenir et pérenne, idéale pour développer des méthodes d'analyse avancées et nourrir directement vos thématiques de PFE et d'activités de recherche.
             </p>
         </div>
         """, unsafe_allow_html=True)
