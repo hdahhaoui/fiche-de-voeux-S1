@@ -481,14 +481,14 @@ if nav == "📝 Exprimer mes Vœux (Enseignant)":
                 st.balloons()
                 st.info("Le département a bien reçu votre fiche. Vous pouvez d'ores et déjà préparer vos supports de cours.")
 
-    st.markdown("---")
-    with st.expander("📢 Mur des validations du Département (Suivi en direct)", expanded=False):
-        st.caption("Ce mur indique les collègues ayant déjà validé leur formulaire. Le détail de vos choix reste strictement confidentiel.")
-        if st.session_state["submissions_feed"]:
-            df_feed = pd.DataFrame(st.session_state["submissions_feed"])
-            st.table(df_feed[["nom", "date", "statut"]])
-        else:
-            st.info("Aucune soumission pour le moment.")
+                st.markdown("---")
+                with st.expander("📢 Mur des validations du Département (Suivi en direct)", expanded=False):
+                    st.caption("Ce mur indique les collègues ayant déjà validé leur formulaire. Le détail de vos choix reste strictement confidentiel.")
+                    if st.session_state["submissions_feed"]:
+                        df_feed = pd.DataFrame(st.session_state["submissions_feed"])
+                        st.table(df_feed[["nom", "date", "statut"]])
+                    else:
+                        st.info("Aucune soumission pour le moment.")
 
 
 # =============================================================
