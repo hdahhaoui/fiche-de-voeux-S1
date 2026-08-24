@@ -27,12 +27,14 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # -------------------------------------------------------------
-# 1. BASE DE DONNÉES COMPLÈTE (12 PARCOURS - 380h / semaine)
+# 1. BASE DE DONNÉES COMPLÈTE DU DÉPARTEMENT
 # -------------------------------------------------------------
 @st.cache_data
 def get_master_modules():
     return pd.DataFrame([
-        # 1ère Ingénieur S1 (2 Groupes)
+        # =========================================================
+        # 1ÈRE ANNÉE INGÉNIEUR - S1 (ST) - (2 Groupes)
+        # =========================================================
         {"ID": "ING1-S1-C01", "Code": "IST 1.1", "Parcours": "1ère Ingénieur", "Matière": "Analyse 1", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
         {"ID": "ING1-S1-C02", "Code": "IST 1.2", "Parcours": "1ère Ingénieur", "Matière": "Algèbre 1", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
         {"ID": "ING1-S1-C03", "Code": "IST 1.3", "Parcours": "1ère Ingénieur", "Matière": "Probabilités et Statistiques", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
@@ -57,7 +59,9 @@ def get_master_modules():
         {"ID": "ING1-S1-NEW01", "Code": "IST 1.8", "Parcours": "1ère Ingénieur", "Matière": "Dimension Éthique et Déontologique", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Nouvelle"},
         {"ID": "ING1-S1-NEW02", "Code": "IST 1.9", "Parcours": "1ère Ingénieur", "Matière": "Histoire de l'Algérie", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Nouvelle"},
 
-        # 2ème Ingénieur S1
+        # =========================================================
+        # 2ÈME ANNÉE INGÉNIEUR - S1 (IGC 3) - (1 Seul Groupe)
+        # =========================================================
         {"ID": "ING2-S1-C01", "Code": "IGC3.1", "Parcours": "2ème Ingénieur", "Matière": "Mathématiques appliquées", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
         {"ID": "ING2-S1-TD01", "Code": "IGC3.1", "Parcours": "2ème Ingénieur", "Matière": "Mathématiques appliquées", "Type": "TD", "Groupe": "Groupe Unique", "Volume_Hebdo": 3.0, "Catégorie": "Historique"},
         {"ID": "ING2-S1-C02", "Code": "IGC3.2", "Parcours": "2ème Ingénieur", "Matière": "Ondes et vibrations", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
@@ -74,9 +78,11 @@ def get_master_modules():
         {"ID": "ING2-S1-TP04", "Code": "IGC3.6", "Parcours": "2ème Ingénieur", "Matière": "Informatique 3", "Type": "TP", "Groupe": "Groupe Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
         {"ID": "ING2-S1-C07", "Code": "IGC3.7", "Parcours": "2ème Ingénieur", "Matière": "Procédés généraux de construction (PGC)", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
         {"ID": "ING2-S1-C08", "Code": "IGC3.8", "Parcours": "2ème Ingénieur", "Matière": "Géologie", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
-        {"ID": "ING2-S1-NEW01", "Code": "IGC3.9", "Parcours": "2ème Ingénieur", "Matière": "Anglais technique", "Type": "TD", "Groupe": "Groupe Unique", "Volume_Hebdo": 1.5, "Catégorie": "Nouvelle"},
+        {"ID": "ING2-S1-TD05", "Code": "IGC3.9", "Parcours": "2ème Ingénieur", "Matière": "Anglais technique", "Type": "TD", "Groupe": "Groupe Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
 
-        # 3ème Ingénieur S1
+        # =========================================================
+        # 3ÈME ANNÉE INGÉNIEUR - S1 (SEG 5) - (1 Seul Groupe)
+        # =========================================================
         {"ID": "ING3-S1-C01", "Code": "SEG 5.1", "Parcours": "3ème Ingénieur", "Matière": "Calcul Béton Armé 2", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
         {"ID": "ING3-S1-TD01", "Code": "SEG 5.1", "Parcours": "3ème Ingénieur", "Matière": "Calcul Béton Armé 2", "Type": "TD", "Groupe": "Groupe Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
         {"ID": "ING3-S1-C02", "Code": "SEG 5.2", "Parcours": "3ème Ingénieur", "Matière": "Mécanique des sols 2", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
@@ -93,30 +99,34 @@ def get_master_modules():
         {"ID": "ING3-S1-TP04", "Code": "SEG 5.7", "Parcours": "3ème Ingénieur", "Matière": "Dessin du BTP", "Type": "TP", "Groupe": "Groupe Unique", "Volume_Hebdo": 3.0, "Catégorie": "Historique"},
         {"ID": "ING3-S1-C07", "Code": "SEG 5.8", "Parcours": "3ème Ingénieur", "Matière": "Dessin Assisté par Ordinateur 2 (DAO 2)", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
         {"ID": "ING3-S1-TP05", "Code": "SEG 5.8", "Parcours": "3ème Ingénieur", "Matière": "Dessin Assisté par Ordinateur 2 (DAO 2)", "Type": "TP", "Groupe": "Groupe Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
-        {"ID": "ING3-S1-NEW01", "Code": "SEG 5.9", "Parcours": "3ème Ingénieur", "Matière": "Anglais technique en relation avec la spécialité", "Type": "TD", "Groupe": "Groupe Unique", "Volume_Hebdo": 1.5, "Catégorie": "Nouvelle"},
+        {"ID": "ING3-S1-TD05", "Code": "SEG 5.9", "Parcours": "3ème Ingénieur", "Matière": "Anglais technique de spécialité", "Type": "TD", "Groupe": "Groupe Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
 
-        # 4ème Ingénieur S1 (Nouvelle Formation)
-        {"ID": "ING4-S1-C01", "Code": "SEG 7.1", "Parcours": "4ème Ingénieur", "Matière": "Résistance des Matériaux 4 (RDM 4)", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
-        {"ID": "ING4-S1-TD01", "Code": "SEG 7.1", "Parcours": "4ème Ingénieur", "Matière": "Résistance des Matériaux 4 (RDM 4)", "Type": "TD", "Groupe": "Groupe Unique", "Volume_Hebdo": 3.0, "Catégorie": "Historique"},
-        {"ID": "ING4-S1-C02", "Code": "SEG 7.2", "Parcours": "4ème Ingénieur", "Matière": "Charpente Métallique 4 (Calcul et conception des assemblages)", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
-        {"ID": "ING4-S1-TD02", "Code": "SEG 7.2", "Parcours": "4ème Ingénieur", "Matière": "Charpente Métallique 4 (Calcul et conception des assemblages)", "Type": "TD", "Groupe": "Groupe Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
-        {"ID": "ING4-S1-C03", "Code": "SEG 7.3", "Parcours": "4ème Ingénieur", "Matière": "Calcul Béton Armé 3", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
-        {"ID": "ING4-S1-TD03", "Code": "SEG 7.3", "Parcours": "4ème Ingénieur", "Matière": "Calcul Béton Armé 3", "Type": "TD", "Groupe": "Groupe Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
-        {"ID": "ING4-S1-C04", "Code": "SEG 7.4", "Parcours": "4ème Ingénieur", "Matière": "Soutènements et Talus", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
-        {"ID": "ING4-S1-TD04", "Code": "SEG 7.4", "Parcours": "4ème Ingénieur", "Matière": "Soutènements et Talus", "Type": "TD", "Groupe": "Groupe Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
-        {"ID": "ING4-S1-C05", "Code": "SEG 7.5", "Parcours": "4ème Ingénieur", "Matière": "Dynamique des structures 1", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
-        {"ID": "ING4-S1-TD05", "Code": "SEG 7.5", "Parcours": "4ème Ingénieur", "Matière": "Dynamique des structures 1", "Type": "TD", "Groupe": "Groupe Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
-        {"ID": "ING4-S1-C06", "Code": "SEG 7.6", "Parcours": "4ème Ingénieur", "Matière": "Diagnostique et réparation des structures", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
-        {"ID": "ING4-S1-TP01", "Code": "SEG 7.6", "Parcours": "4ème Ingénieur", "Matière": "Diagnostique et réparation des structures", "Type": "TP", "Groupe": "Groupe Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
-        {"ID": "ING4-S1-C07", "Code": "SEG 7.7", "Parcours": "4ème Ingénieur", "Matière": "Projet en charpente Métallique", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
-        {"ID": "ING4-S1-TP02", "Code": "SEG 7.7", "Parcours": "4ème Ingénieur", "Matière": "Projet en charpente Métallique", "Type": "TP", "Groupe": "Groupe Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
-        {"ID": "ING4-S1-C08", "Code": "SEG 7.8", "Parcours": "4ème Ingénieur", "Matière": "Planification et gestion de projet de construction", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
-        {"ID": "ING4-S1-TP03", "Code": "SEG 7.8", "Parcours": "4ème Ingénieur", "Matière": "Planification et gestion de projet de construction", "Type": "TP", "Groupe": "Groupe Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
-        {"ID": "ING4-S1-NEW01", "Code": "SEG 7.9", "Parcours": "4ème Ingénieur", "Matière": "Programmation avancée en Python (Cours)", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Nouvelle"},
-        {"ID": "ING4-S1-NEW02", "Code": "SEG 7.9", "Parcours": "4ème Ingénieur", "Matière": "Programmation avancée en Python (TP)", "Type": "TP", "Groupe": "Groupe Unique", "Volume_Hebdo": 1.5, "Catégorie": "Nouvelle"},
+        # =========================================================
+        # 4ÈME ANNÉE INGÉNIEUR - S1 (SEG 7) - NOUVELLE FORMATION
+        # =========================================================
+        {"ID": "ING4-S1-C01", "Code": "SEG 7.1", "Parcours": "4ème Ingénieur", "Matière": "Résistance des Matériaux 4 (RDM 4)", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Nouvelle"},
+        {"ID": "ING4-S1-TD01", "Code": "SEG 7.1", "Parcours": "4ème Ingénieur", "Matière": "Résistance des Matériaux 4 (RDM 4)", "Type": "TD", "Groupe": "Groupe Unique", "Volume_Hebdo": 3.0, "Catégorie": "Nouvelle"},
+        {"ID": "ING4-S1-C02", "Code": "SEG 7.2", "Parcours": "4ème Ingénieur", "Matière": "Charpente Métallique 4 (Assemblages)", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Nouvelle"},
+        {"ID": "ING4-S1-TD02", "Code": "SEG 7.2", "Parcours": "4ème Ingénieur", "Matière": "Charpente Métallique 4 (Assemblages)", "Type": "TD", "Groupe": "Groupe Unique", "Volume_Hebdo": 1.5, "Catégorie": "Nouvelle"},
+        {"ID": "ING4-S1-C03", "Code": "SEG 7.3", "Parcours": "4ème Ingénieur", "Matière": "Calcul Béton Armé 3", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Nouvelle"},
+        {"ID": "ING4-S1-TD03", "Code": "SEG 7.3", "Parcours": "4ème Ingénieur", "Matière": "Calcul Béton Armé 3", "Type": "TD", "Groupe": "Groupe Unique", "Volume_Hebdo": 1.5, "Catégorie": "Nouvelle"},
+        {"ID": "ING4-S1-C04", "Code": "SEG 7.4", "Parcours": "4ème Ingénieur", "Matière": "Soutènements et Talus", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Nouvelle"},
+        {"ID": "ING4-S1-TD04", "Code": "SEG 7.4", "Parcours": "4ème Ingénieur", "Matière": "Soutènements et Talus", "Type": "TD", "Groupe": "Groupe Unique", "Volume_Hebdo": 1.5, "Catégorie": "Nouvelle"},
+        {"ID": "ING4-S1-C05", "Code": "SEG 7.5", "Parcours": "4ème Ingénieur", "Matière": "Dynamique des structures 1", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Nouvelle"},
+        {"ID": "ING4-S1-TD05", "Code": "SEG 7.5", "Parcours": "4ème Ingénieur", "Matière": "Dynamique des structures 1", "Type": "TD", "Groupe": "Groupe Unique", "Volume_Hebdo": 1.5, "Catégorie": "Nouvelle"},
+        {"ID": "ING4-S1-C06", "Code": "SEG 7.6", "Parcours": "4ème Ingénieur", "Matière": "Diagnostique et réparation des structures", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Nouvelle"},
+        {"ID": "ING4-S1-TP01", "Code": "SEG 7.6", "Parcours": "4ème Ingénieur", "Matière": "Diagnostique et réparation des structures", "Type": "TP", "Groupe": "Groupe Unique", "Volume_Hebdo": 1.5, "Catégorie": "Nouvelle"},
+        {"ID": "ING4-S1-C07", "Code": "SEG 7.7", "Parcours": "4ème Ingénieur", "Matière": "Projet en charpente Métallique", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Nouvelle"},
+        {"ID": "ING4-S1-TP02", "Code": "SEG 7.7", "Parcours": "4ème Ingénieur", "Matière": "Projet en charpente Métallique", "Type": "TP", "Groupe": "Groupe Unique", "Volume_Hebdo": 1.5, "Catégorie": "Nouvelle"},
+        {"ID": "ING4-S1-C08", "Code": "SEG 7.8", "Parcours": "4ème Ingénieur", "Matière": "Planification et gestion de projet de construction", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Nouvelle"},
+        {"ID": "ING4-S1-TP03", "Code": "SEG 7.8", "Parcours": "4ème Ingénieur", "Matière": "Planification et gestion de projet de construction", "Type": "TP", "Groupe": "Groupe Unique", "Volume_Hebdo": 1.5, "Catégorie": "Nouvelle"},
+        {"ID": "ING4-S1-NEW01", "Code": "SEG 7.9", "Parcours": "4ème Ingénieur", "Matière": "Programmation avancée en Python", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Nouvelle"},
+        {"ID": "ING4-S1-NEW02", "Code": "SEG 7.9", "Parcours": "4ème Ingénieur", "Matière": "Programmation avancée en Python", "Type": "TP", "Groupe": "Groupe Unique", "Volume_Hebdo": 1.5, "Catégorie": "Nouvelle"},
         {"ID": "ING4-S1-NEW03", "Code": "SEG 7.10", "Parcours": "4ème Ingénieur", "Matière": "Respect des normes et des règles d'éthique et d'intégrité", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Nouvelle"},
 
-        # Licence L2 S1 (3 Groupes)
+        # =========================================================
+        # LICENCE 2ÈME ANNÉE - S1 (S3) - (3 Groupes)
+        # =========================================================
         {"ID": "L2-S1-C01", "Code": "UEF 2.1.1", "Parcours": "L2 Génie Civil", "Matière": "Analyse 3", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
         {"ID": "L2-S1-TD01", "Code": "UEF 2.1.1", "Parcours": "L2 Génie Civil", "Matière": "Analyse 3", "Type": "TD", "Groupe": "Groupe 1", "Volume_Hebdo": 3.0, "Catégorie": "Historique"},
         {"ID": "L2-S1-TD02", "Code": "UEF 2.1.1", "Parcours": "L2 Génie Civil", "Matière": "Analyse 3", "Type": "TD", "Groupe": "Groupe 2", "Volume_Hebdo": 3.0, "Catégorie": "Historique"},
@@ -140,19 +150,21 @@ def get_master_modules():
         {"ID": "L2-S1-TD13", "Code": "UEM 2.1", "Parcours": "L2 Génie Civil", "Matière": "Probabilités et statistiques", "Type": "TD", "Groupe": "Groupe 1", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
         {"ID": "L2-S1-TD14", "Code": "UEM 2.1", "Parcours": "L2 Génie Civil", "Matière": "Probabilités et statistiques", "Type": "TD", "Groupe": "Groupe 2", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
         {"ID": "L2-S1-TD15", "Code": "UEM 2.1", "Parcours": "L2 Génie Civil", "Matière": "Probabilités et statistiques", "Type": "TD", "Groupe": "Groupe 3", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
-        {"ID": "L2-S1-NEW01", "Code": "UEM 2.1", "Parcours": "L2 Génie Civil", "Matière": "Programmation Python (Cours)", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Nouvelle"},
-        {"ID": "L2-S1-NEW02", "Code": "UEM 2.1", "Parcours": "L2 Génie Civil", "Matière": "Programmation Python (TP)", "Type": "TP", "Groupe": "Groupe 1", "Volume_Hebdo": 1.5, "Catégorie": "Nouvelle"},
-        {"ID": "L2-S1-NEW03", "Code": "UEM 2.1", "Parcours": "L2 Génie Civil", "Matière": "Programmation Python (TP)", "Type": "TP", "Groupe": "Groupe 2", "Volume_Hebdo": 1.5, "Catégorie": "Nouvelle"},
-        {"ID": "L2-S1-NEW04", "Code": "UEM 2.1", "Parcours": "L2 Génie Civil", "Matière": "Programmation Python (TP)", "Type": "TP", "Groupe": "Groupe 3", "Volume_Hebdo": 1.5, "Catégorie": "Nouvelle"},
-        {"ID": "L2-S1-TP04", "Code": "UEM 2.1", "Parcours": "L2 Génie Civil", "Matière": "Dessin technique", "Type": "TP", "Groupe": "Groupe 1", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
-        {"ID": "L2-S1-TP05", "Code": "UEM 2.1", "Parcours": "L2 Génie Civil", "Matière": "Dessin technique", "Type": "TP", "Groupe": "Groupe 2", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
-        {"ID": "L2-S1-TP06", "Code": "UEM 2.1", "Parcours": "L2 Génie Civil", "Matière": "Dessin technique", "Type": "TP", "Groupe": "Groupe 3", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
-        {"ID": "L2-S1-TP07", "Code": "UEM 2.1", "Parcours": "L2 Génie Civil", "Matière": "TP Ondes et vibrations", "Type": "TP", "Groupe": "Groupe 1", "Volume_Hebdo": 1.0, "Catégorie": "Historique"},
-        {"ID": "L2-S1-TP08", "Code": "UEM 2.1", "Parcours": "L2 Génie Civil", "Matière": "TP Ondes et vibrations", "Type": "TP", "Groupe": "Groupe 2", "Volume_Hebdo": 1.0, "Catégorie": "Historique"},
-        {"ID": "L2-S1-TP09", "Code": "UEM 2.1", "Parcours": "L2 Génie Civil", "Matière": "TP Ondes et vibrations", "Type": "TP", "Groupe": "Groupe 3", "Volume_Hebdo": 1.0, "Catégorie": "Historique"},
-        {"ID": "L2-S1-NEW05", "Code": "UED 2.1", "Parcours": "L2 Génie Civil", "Matière": "Métrologie", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Nouvelle"},
+        {"ID": "L2-S1-C06", "Code": "UEM 2.1", "Parcours": "L2 Génie Civil", "Matière": "Programmation Python", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
+        {"ID": "L2-S1-TP04", "Code": "UEM 2.1", "Parcours": "L2 Génie Civil", "Matière": "Programmation Python (TP)", "Type": "TP", "Groupe": "Groupe 1", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
+        {"ID": "L2-S1-TP05", "Code": "UEM 2.1", "Parcours": "L2 Génie Civil", "Matière": "Programmation Python (TP)", "Type": "TP", "Groupe": "Groupe 2", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
+        {"ID": "L2-S1-TP06", "Code": "UEM 2.1", "Parcours": "L2 Génie Civil", "Matière": "Programmation Python (TP)", "Type": "TP", "Groupe": "Groupe 3", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
+        {"ID": "L2-S1-TP07", "Code": "UEM 2.1", "Parcours": "L2 Génie Civil", "Matière": "Dessin technique", "Type": "TP", "Groupe": "Groupe 1", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
+        {"ID": "L2-S1-TP08", "Code": "UEM 2.1", "Parcours": "L2 Génie Civil", "Matière": "Dessin technique", "Type": "TP", "Groupe": "Groupe 2", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
+        {"ID": "L2-S1-TP09", "Code": "UEM 2.1", "Parcours": "L2 Génie Civil", "Matière": "Dessin technique", "Type": "TP", "Groupe": "Groupe 3", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
+        {"ID": "L2-S1-TP10", "Code": "UEM 2.1", "Parcours": "L2 Génie Civil", "Matière": "TP Ondes et vibrations", "Type": "TP", "Groupe": "Groupe 1", "Volume_Hebdo": 1.0, "Catégorie": "Historique"},
+        {"ID": "L2-S1-TP11", "Code": "UEM 2.1", "Parcours": "L2 Génie Civil", "Matière": "TP Ondes et vibrations", "Type": "TP", "Groupe": "Groupe 2", "Volume_Hebdo": 1.0, "Catégorie": "Historique"},
+        {"ID": "L2-S1-TP12", "Code": "UEM 2.1", "Parcours": "L2 Génie Civil", "Matière": "TP Ondes et vibrations", "Type": "TP", "Groupe": "Groupe 3", "Volume_Hebdo": 1.0, "Catégorie": "Historique"},
+        {"ID": "L2-S1-C07", "Code": "UED 2.1", "Parcours": "L2 Génie Civil", "Matière": "Métrologie", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
 
-        # Licence L3 S1 (2 Groupes)
+        # =========================================================
+        # LICENCE 3ÈME ANNÉE - S1 (S5) - (2 Groupes)
+        # =========================================================
         {"ID": "L3-S1-C01", "Code": "UEF 3.1.1", "Parcours": "L3 Génie Civil", "Matière": "Résistance des Matériaux 2 (RDM 2)", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
         {"ID": "L3-S1-TD01", "Code": "UEF 3.1.1", "Parcours": "L3 Génie Civil", "Matière": "Résistance des Matériaux 2 (RDM 2)", "Type": "TD", "Groupe": "Groupe 1", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
         {"ID": "L3-S1-TD02", "Code": "UEF 3.1.1", "Parcours": "L3 Génie Civil", "Matière": "Résistance des Matériaux 2 (RDM 2)", "Type": "TD", "Groupe": "Groupe 2", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
@@ -176,9 +188,11 @@ def get_master_modules():
         {"ID": "L3-S1-TP07", "Code": "UEM 3.1", "Parcours": "L3 Génie Civil", "Matière": "Dessin du BTP", "Type": "TP", "Groupe": "Groupe 1", "Volume_Hebdo": 2.5, "Catégorie": "Historique"},
         {"ID": "L3-S1-TP08", "Code": "UEM 3.1", "Parcours": "L3 Génie Civil", "Matière": "Dessin du BTP", "Type": "TP", "Groupe": "Groupe 2", "Volume_Hebdo": 2.5, "Catégorie": "Historique"},
         {"ID": "L3-S1-C07", "Code": "UED 3.1", "Parcours": "L3 Génie Civil", "Matière": "Hydraulique générale", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
-        {"ID": "L3-S1-NEW01", "Code": "UET 3.1", "Parcours": "L3 Génie Civil", "Matière": "Techniques et règles de construction", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Nouvelle"},
+        {"ID": "L3-S1-C08", "Code": "UET 3.1", "Parcours": "L3 Génie Civil", "Matière": "Techniques et règles de construction", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
 
-        # Master 1 VOA
+        # =========================================================
+        # MASTER 1 VOA - S1 (1 Seul Groupe)
+        # =========================================================
         {"ID": "M1-VOA-C01", "Code": "UEF 1.1.1", "Parcours": "Master 1 VOA", "Matière": "Théorie de l'Élasticité", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
         {"ID": "M1-VOA-TD01", "Code": "UEF 1.1.1", "Parcours": "Master 1 VOA", "Matière": "Théorie de l'Élasticité", "Type": "TD", "Groupe": "Groupe Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
         {"ID": "M1-VOA-C02", "Code": "UEF 1.1.1", "Parcours": "Master 1 VOA", "Matière": "Dynamique des structures", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
@@ -190,13 +204,15 @@ def get_master_modules():
         {"ID": "M1-VOA-C05", "Code": "UEM 1.1", "Parcours": "Master 1 VOA", "Matière": "Projet Ouvrages en Béton Armé", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
         {"ID": "M1-VOA-TD05", "Code": "UEM 1.1", "Parcours": "Master 1 VOA", "Matière": "Projet Ouvrages en Béton Armé", "Type": "TD", "Groupe": "Groupe Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
         {"ID": "M1-VOA-TP01", "Code": "UEM 1.1", "Parcours": "Master 1 VOA", "Matière": "Projet Ouvrages en Béton Armé", "Type": "TP", "Groupe": "Groupe Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
-        {"ID": "M1-VOA-NEW01", "Code": "UEM 1.1", "Parcours": "Master 1 VOA", "Matière": "Programmation Avancée Python (Cours)", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Nouvelle"},
-        {"ID": "M1-VOA-NEW02", "Code": "UEM 1.1", "Parcours": "Master 1 VOA", "Matière": "Programmation Avancée Python (TP)", "Type": "TP", "Groupe": "Groupe Unique", "Volume_Hebdo": 1.5, "Catégorie": "Nouvelle"},
-        {"ID": "M1-VOA-TP02", "Code": "UEM 1.1", "Parcours": "Master 1 VOA", "Matière": "TP Logiciels Appliqués aux Routes", "Type": "TP", "Groupe": "Groupe Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
-        {"ID": "M1-VOA-NEW03", "Code": "UET 1.1", "Parcours": "Master 1 VOA", "Matière": "Code des marchés publics", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Nouvelle"},
-        {"ID": "M1-VOA-NEW04", "Code": "UET 1.1", "Parcours": "Master 1 VOA", "Matière": "Respect des normes et des règles d'éthique et d'intégrité", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Nouvelle"},
+        {"ID": "M1-VOA-C06", "Code": "UEM 1.1", "Parcours": "Master 1 VOA", "Matière": "Programmation Avancée Python", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
+        {"ID": "M1-VOA-TP02", "Code": "UEM 1.1", "Parcours": "Master 1 VOA", "Matière": "Programmation Avancée Python (TP)", "Type": "TP", "Groupe": "Groupe Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
+        {"ID": "M1-VOA-TP03", "Code": "UEM 1.1", "Parcours": "Master 1 VOA", "Matière": "TP Logiciels Appliqués aux Routes", "Type": "TP", "Groupe": "Groupe Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
+        {"ID": "M1-VOA-C07", "Code": "UET 1.1", "Parcours": "Master 1 VOA", "Matière": "Code des marchés publics", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
+        {"ID": "M1-VOA-NEW01", "Code": "UET 1.1", "Parcours": "Master 1 VOA", "Matière": "Respect des normes et des règles d'éthique et d'intégrité", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Nouvelle"},
 
-        # Master 2 VOA
+        # =========================================================
+        # MASTER 2 VOA - S1 (1 Seul Groupe)
+        # =========================================================
         {"ID": "M2-VOA-C01", "Code": "UEF 2.1.1", "Parcours": "Master 2 VOA", "Matière": "Conceptions avancées de ponts", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
         {"ID": "M2-VOA-TD01", "Code": "UEF 2.1.1", "Parcours": "Master 2 VOA", "Matière": "Conceptions avancées de ponts", "Type": "TD", "Groupe": "Groupe Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
         {"ID": "M2-VOA-C02", "Code": "UEF 2.1.1", "Parcours": "Master 2 VOA", "Matière": "Ouvrages souterrains", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
@@ -208,13 +224,15 @@ def get_master_modules():
         {"ID": "M2-VOA-C05", "Code": "UEF 2.1.2", "Parcours": "Master 2 VOA", "Matière": "Pathologie et réhabilitation des OA", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
         {"ID": "M2-VOA-C06", "Code": "UEM 2.1", "Parcours": "Master 2 VOA", "Matière": "Géotechnique avancée", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
         {"ID": "M2-VOA-TP01", "Code": "UEM 2.1", "Parcours": "Master 2 VOA", "Matière": "Géotechnique avancée (TP)", "Type": "TP", "Groupe": "Groupe Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
-        {"ID": "M2-VOA-TP02", "Code": "UEM 2.1", "Parcours": "Master 2 VOA", "Matière": "Modélisation numérique des Ponts (TP)", "Type": "TP", "Groupe": "Groupe Unique", "Volume_Hebdo": 2.5, "Catégorie": "Historique"},
+        {"ID": "M2-VOA-TP02", "Code": "UEM 2.1", "Parcours": "Master 2 VOA", "Matière": "Modélisation numérique des Ponts", "Type": "TP", "Groupe": "Groupe Unique", "Volume_Hebdo": 2.5, "Catégorie": "Historique"},
         {"ID": "M2-VOA-TP03", "Code": "UEM 2.1", "Parcours": "Master 2 VOA", "Matière": "Organisation et visites de chantiers", "Type": "TP", "Groupe": "Groupe Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
-        {"ID": "M2-VOA-NEW01", "Code": "UET 2.1", "Parcours": "Master 2 VOA", "Matière": "Recherche documentaire et conception de mémoire", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Nouvelle"},
-        {"ID": "M2-VOA-NEW02", "Code": "UET 2.1", "Parcours": "Master 2 VOA", "Matière": "Reverse Engineering (Cours)", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Nouvelle"},
-        {"ID": "M2-VOA-NEW03", "Code": "UET 2.1", "Parcours": "Master 2 VOA", "Matière": "Reverse Engineering (Atelier)", "Type": "TD", "Groupe": "Groupe Unique", "Volume_Hebdo": 1.5, "Catégorie": "Nouvelle"},
+        {"ID": "M2-VOA-C07", "Code": "UET 2.1", "Parcours": "Master 2 VOA", "Matière": "Recherche documentaire et conception de mémoire", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
+        {"ID": "M2-VOA-NEW01", "Code": "UET 2.1", "Parcours": "Master 2 VOA", "Matière": "Reverse Engineering", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Nouvelle"},
+        {"ID": "M2-VOA-NEW02", "Code": "UET 2.1", "Parcours": "Master 2 VOA", "Matière": "Reverse Engineering", "Type": "Atelier", "Groupe": "Groupe Unique", "Volume_Hebdo": 1.5, "Catégorie": "Nouvelle"},
 
-        # Master 1 Structures
+        # =========================================================
+        # MASTER 1 STRUCTURES - S1 (1 Seul Groupe)
+        # =========================================================
         {"ID": "M1-STR-C01", "Code": "UEF 1.1.1", "Parcours": "Master 1 Structures", "Matière": "Mécanique des structures", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
         {"ID": "M1-STR-TD01", "Code": "UEF 1.1.1", "Parcours": "Master 1 Structures", "Matière": "Mécanique des structures", "Type": "TD", "Groupe": "Groupe Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
         {"ID": "M1-STR-C02", "Code": "UEF 1.1.1", "Parcours": "Master 1 Structures", "Matière": "Dynamique des structures 1", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
@@ -223,16 +241,18 @@ def get_master_modules():
         {"ID": "M1-STR-TD03", "Code": "UEF 1.1.2", "Parcours": "Master 1 Structures", "Matière": "Structures en béton armé 1", "Type": "TD", "Groupe": "Groupe Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
         {"ID": "M1-STR-C04", "Code": "UEF 1.1.2", "Parcours": "Master 1 Structures", "Matière": "Structures métalliques", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 3.0, "Catégorie": "Historique"},
         {"ID": "M1-STR-TD04", "Code": "UEF 1.1.2", "Parcours": "Master 1 Structures", "Matière": "Structures métalliques", "Type": "TD", "Groupe": "Groupe Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
-        {"ID": "M1-STR-NEW01", "Code": "UEM 1.1", "Parcours": "Master 1 Structures", "Matière": "Programmation Avancée Python (Cours)", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Nouvelle"},
-        {"ID": "M1-STR-NEW02", "Code": "UEM 1.1", "Parcours": "Master 1 Structures", "Matière": "Programmation Avancée Python (TP)", "Type": "TP", "Groupe": "Groupe Unique", "Volume_Hebdo": 1.5, "Catégorie": "Nouvelle"},
-        {"ID": "M1-STR-TP01", "Code": "UEM 1.1", "Parcours": "Master 1 Structures", "Matière": "Méthodes expérimentales (TP)", "Type": "TP", "Groupe": "Groupe Unique", "Volume_Hebdo": 3.0, "Catégorie": "Historique"},
-        {"ID": "M1-STR-C05", "Code": "UEM 1.1", "Parcours": "Master 1 Structures", "Matière": "Matériaux innovants et durabilité", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
-        {"ID": "M1-STR-TP02", "Code": "UEM 1.1", "Parcours": "Master 1 Structures", "Matière": "Matériaux innovants et durabilité (TP)", "Type": "TP", "Groupe": "Groupe Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
-        {"ID": "M1-STR-C06", "Code": "UEM 1.1", "Parcours": "Master 1 Structures", "Matière": "Gestion de l'Incertitude et Risques en Ingénierie", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
-        {"ID": "M1-STR-NEW03", "Code": "UED 1.1", "Parcours": "Master 1 Structures", "Matière": "Code des marchés publics", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Nouvelle"},
-        {"ID": "M1-STR-NEW04", "Code": "UED 1.1", "Parcours": "Master 1 Structures", "Matière": "Respect des normes et des règles d'éthique et d'intégrité", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Nouvelle"},
+        {"ID": "M1-STR-C05", "Code": "UEM 1.1", "Parcours": "Master 1 Structures", "Matière": "Programmation Avancée Python", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
+        {"ID": "M1-STR-TP01", "Code": "UEM 1.1", "Parcours": "Master 1 Structures", "Matière": "Programmation Avancée Python (TP)", "Type": "TP", "Groupe": "Groupe Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
+        {"ID": "M1-STR-TP02", "Code": "UEM 1.1", "Parcours": "Master 1 Structures", "Matière": "Méthodes expérimentales", "Type": "TP", "Groupe": "Groupe Unique", "Volume_Hebdo": 3.0, "Catégorie": "Historique"},
+        {"ID": "M1-STR-C06", "Code": "UEM 1.1", "Parcours": "Master 1 Structures", "Matière": "Matériaux innovants et durabilité", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
+        {"ID": "M1-STR-TP03", "Code": "UEM 1.1", "Parcours": "Master 1 Structures", "Matière": "Matériaux innovants et durabilité (TP)", "Type": "TP", "Groupe": "Groupe Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
+        {"ID": "M1-STR-C07", "Code": "UEM 1.1", "Parcours": "Master 1 Structures", "Matière": "Gestion de l'Incertitude et Risques en Ingénierie", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
+        {"ID": "M1-STR-C08", "Code": "UED 1.1", "Parcours": "Master 1 Structures", "Matière": "Code des marchés publics", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
+        {"ID": "M1-STR-NEW01", "Code": "UED 1.1", "Parcours": "Master 1 Structures", "Matière": "Respect des normes et des règles d'éthique et d'intégrité", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Nouvelle"},
 
-        # Master 2 Structures
+        # =========================================================
+        # MASTER 2 STRUCTURES - S1 (1 Seul Groupe)
+        # =========================================================
         {"ID": "M2-STR-C01", "Code": "UEF 2.1.1", "Parcours": "Master 2 Structures", "Matière": "Béton précontraint", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 3.0, "Catégorie": "Historique"},
         {"ID": "M2-STR-TD01", "Code": "UEF 2.1.1", "Parcours": "Master 2 Structures", "Matière": "Béton précontraint", "Type": "TD", "Groupe": "Groupe Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
         {"ID": "M2-STR-C02", "Code": "UEF 2.1.1", "Parcours": "Master 2 Structures", "Matière": "Plasticité et endommagement", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
@@ -242,13 +262,15 @@ def get_master_modules():
         {"ID": "M2-STR-C04", "Code": "UEF 2.1.2", "Parcours": "Master 2 Structures", "Matière": "Ouvrages spéciaux", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
         {"ID": "M2-STR-TD04", "Code": "UEF 2.1.2", "Parcours": "Master 2 Structures", "Matière": "Ouvrages spéciaux", "Type": "TD", "Groupe": "Groupe Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
         {"ID": "M2-STR-C05", "Code": "UEM 2.1", "Parcours": "Master 2 Structures", "Matière": "Projet structures en béton armé", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
-        {"ID": "M2-STR-TP01", "Code": "UEM 2.1", "Parcours": "Master 2 Structures", "Matière": "Projet structures en béton armé (TP)", "Type": "TP", "Groupe": "Groupe Unique", "Volume_Hebdo": 3.0, "Catégorie": "Historique"},
-        {"ID": "M2-STR-TP02", "Code": "UEM 2.1", "Parcours": "Master 2 Structures", "Matière": "Modélisation des structures (TP)", "Type": "TP", "Groupe": "Groupe Unique", "Volume_Hebdo": 3.0, "Catégorie": "Historique"},
-        {"ID": "M2-STR-NEW01", "Code": "UET 2.1", "Parcours": "Master 2 Structures", "Matière": "Recherche documentaire et conception de mémoire", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Nouvelle"},
-        {"ID": "M2-STR-NEW02", "Code": "UET 2.1", "Parcours": "Master 2 Structures", "Matière": "Reverse Engineering (Cours)", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Nouvelle"},
-        {"ID": "M2-STR-NEW03", "Code": "UET 2.1", "Parcours": "Master 2 Structures", "Matière": "Reverse Engineering (Atelier)", "Type": "TD", "Groupe": "Groupe Unique", "Volume_Hebdo": 1.5, "Catégorie": "Nouvelle"},
+        {"ID": "M2-STR-TP01", "Code": "UEM 2.1", "Parcours": "Master 2 Structures", "Matière": "Projet structures en béton armé", "Type": "TP", "Groupe": "Groupe Unique", "Volume_Hebdo": 3.0, "Catégorie": "Historique"},
+        {"ID": "M2-STR-TP02", "Code": "UEM 2.1", "Parcours": "Master 2 Structures", "Matière": "Modélisation des structures", "Type": "TP", "Groupe": "Groupe Unique", "Volume_Hebdo": 3.0, "Catégorie": "Historique"},
+        {"ID": "M2-STR-C06", "Code": "UET 2.1", "Parcours": "Master 2 Structures", "Matière": "Recherche documentaire et conception de mémoire", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
+        {"ID": "M2-STR-NEW01", "Code": "UET 2.1", "Parcours": "Master 2 Structures", "Matière": "Reverse Engineering", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Nouvelle"},
+        {"ID": "M2-STR-NEW02", "Code": "UET 2.1", "Parcours": "Master 2 Structures", "Matière": "Reverse Engineering", "Type": "Atelier", "Groupe": "Groupe Unique", "Volume_Hebdo": 1.5, "Catégorie": "Nouvelle"},
 
-        # Master 1 RIB
+        # =========================================================
+        # MASTER 1 RIB - S1 (1 Seul Groupe)
+        # =========================================================
         {"ID": "M1-RIB-C01", "Code": "UEF 1.1.1", "Parcours": "Master 1 RIB", "Matière": "Pathologie des ouvrages (bâtiments et géotechniques)", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 3.0, "Catégorie": "Historique"},
         {"ID": "M1-RIB-C02", "Code": "UEF 1.1.1", "Parcours": "Master 1 RIB", "Matière": "Eléments en béton armé", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
         {"ID": "M1-RIB-TD01", "Code": "UEF 1.1.1", "Parcours": "Master 1 RIB", "Matière": "Eléments en béton armé", "Type": "TD", "Groupe": "Groupe Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
@@ -259,12 +281,14 @@ def get_master_modules():
         {"ID": "M1-RIB-C05", "Code": "UEM 1.1", "Parcours": "Master 1 RIB", "Matière": "Matériaux innovants", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
         {"ID": "M1-RIB-TP01", "Code": "UEM 1.1", "Parcours": "Master 1 RIB", "Matière": "Matériaux innovants (TP)", "Type": "TP", "Groupe": "Groupe Unique", "Volume_Hebdo": 3.0, "Catégorie": "Historique"},
         {"ID": "M1-RIB-TP02", "Code": "UEM 1.1", "Parcours": "Master 1 RIB", "Matière": "Mini projet tuteuré 1", "Type": "TP", "Groupe": "Groupe Unique", "Volume_Hebdo": 2.5, "Catégorie": "Historique"},
-        {"ID": "M1-RIB-NEW01", "Code": "UEM 1.1", "Parcours": "Master 1 RIB", "Matière": "Programmation avancée en Python (Cours)", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Nouvelle"},
-        {"ID": "M1-RIB-NEW02", "Code": "UEM 1.1", "Parcours": "Master 1 RIB", "Matière": "Programmation avancée en Python (TP)", "Type": "TP", "Groupe": "Groupe Unique", "Volume_Hebdo": 1.5, "Catégorie": "Nouvelle"},
-        {"ID": "M1-RIB-NEW03", "Code": "UED 1.1", "Parcours": "Master 1 RIB", "Matière": "Respect des normes et des règles d'éthique et d'intégrité", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Nouvelle"},
-        {"ID": "M1-RIB-NEW04", "Code": "UED 1.1", "Parcours": "Master 1 RIB", "Matière": "Communication interpersonnelle", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Nouvelle"},
+        {"ID": "M1-RIB-C06", "Code": "UEM 1.1", "Parcours": "Master 1 RIB", "Matière": "Programmation avancée en Python", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
+        {"ID": "M1-RIB-TP03", "Code": "UEM 1.1", "Parcours": "Master 1 RIB", "Matière": "Programmation avancée en Python (TP)", "Type": "TP", "Groupe": "Groupe Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
+        {"ID": "M1-RIB-NEW01", "Code": "UED 1.1", "Parcours": "Master 1 RIB", "Matière": "Respect des normes et des règles d'éthique et d'intégrité", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Nouvelle"},
+        {"ID": "M1-RIB-C07", "Code": "UED 1.1", "Parcours": "Master 1 RIB", "Matière": "Communication interpersonnelle", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
 
-        # Master 2 RIB
+        # =========================================================
+        # MASTER 2 RIB - S1 (1 Seul Groupe)
+        # =========================================================
         {"ID": "M2-RIB-C01", "Code": "UEF 2.1.1", "Parcours": "Master 2 RIB", "Matière": "Réhabilitation du bâtiment", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
         {"ID": "M2-RIB-TD01", "Code": "UEF 2.1.1", "Parcours": "Master 2 RIB", "Matière": "Réhabilitation du bâtiment", "Type": "TD", "Groupe": "Groupe Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
         {"ID": "M2-RIB-C02", "Code": "UEF 2.1.1", "Parcours": "Master 2 RIB", "Matière": "Durabilité des bétons", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
@@ -275,32 +299,32 @@ def get_master_modules():
         {"ID": "M2-RIB-TP03", "Code": "UEM 2.1", "Parcours": "Master 2 RIB", "Matière": "Intelligence artificielle 2 (TP)", "Type": "TP", "Groupe": "Groupe Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
         {"ID": "M2-RIB-TP04", "Code": "UEM 2.1", "Parcours": "Master 2 RIB", "Matière": "Acquisition & Traitement intelligent des Signaux", "Type": "TP", "Groupe": "Groupe Unique", "Volume_Hebdo": 3.0, "Catégorie": "Historique"},
         {"ID": "M2-RIB-TP05", "Code": "UEM 2.1", "Parcours": "Master 2 RIB", "Matière": "Stage aux entreprises (Suivi/TP)", "Type": "TP", "Groupe": "Groupe Unique", "Volume_Hebdo": 3.0, "Catégorie": "Historique"},
-        {"ID": "M2-RIB-NEW01", "Code": "UED 2.1", "Parcours": "Master 2 RIB", "Matière": "Intégration professionnelle et entrepreneuriat", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Nouvelle"},
-        {"ID": "M2-RIB-NEW02", "Code": "UED 2.1", "Parcours": "Master 2 RIB", "Matière": "Management des projets", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Nouvelle"},
-        {"ID": "M2-RIB-NEW03", "Code": "UET 2.1", "Parcours": "Master 2 RIB", "Matière": "Recherche documentaire et conception de mémoire", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Nouvelle"},
-        {"ID": "M2-RIB-NEW04", "Code": "UET 2.1", "Parcours": "Master 2 RIB", "Matière": "Reverse Engineering (Cours)", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Nouvelle"},
-        {"ID": "M2-RIB-NEW05", "Code": "UET 2.1", "Parcours": "Master 2 RIB", "Matière": "Reverse Engineering (Atelier)", "Type": "TD", "Groupe": "Groupe Unique", "Volume_Hebdo": 1.5, "Catégorie": "Nouvelle"}
+        {"ID": "M2-RIB-C05", "Code": "UED 2.1", "Parcours": "Master 2 RIB", "Matière": "Intégration professionnelle et entrepreneuriat", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
+        {"ID": "M2-RIB-C06", "Code": "UED 2.1", "Parcours": "Master 2 RIB", "Matière": "Management des projets", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
+        {"ID": "M2-RIB-C07", "Code": "UET 2.1", "Parcours": "Master 2 RIB", "Matière": "Recherche documentaire et conception de mémoire", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Historique"},
+        {"ID": "M2-RIB-NEW01", "Code": "UET 2.1", "Parcours": "Master 2 RIB", "Matière": "Reverse Engineering", "Type": "Cours", "Groupe": "Section Unique", "Volume_Hebdo": 1.5, "Catégorie": "Nouvelle"},
+        {"ID": "M2-RIB-NEW02", "Code": "UET 2.1", "Parcours": "Master 2 RIB", "Matière": "Reverse Engineering", "Type": "Atelier", "Groupe": "Groupe Unique", "Volume_Hebdo": 1.5, "Catégorie": "Nouvelle"}
     ])
 
-# Gestion des états de verrouillage et soumissions
+# Gestion des états
 if "locked_modules" not in st.session_state:
-    st.session_state["locked_modules"] = {} # format: {module_id: "Enseignant Assigné"}
+    st.session_state["locked_modules"] = {}
 
 if "submissions_feed" not in st.session_state:
     st.session_state["submissions_feed"] = [
-        {"nom": "Dr. Benali Mohamed", "date": "23/08/2026 à 14:32", "statut": "Vœux enregistrés"},
-        {"nom": "Pr. Mansouri Fatima", "date": "23/08/2026 à 16:15", "statut": "Vœux enregistrés"}
+        {"nom": "Dr. Benali Mohamed", "date": "24/08/2026 à 09:15", "statut": "Vœux enregistrés"},
+        {"nom": "Pr. Mansouri Fatima", "date": "24/08/2026 à 10:02", "statut": "Vœux enregistrés"}
     ]
 
 # -------------------------------------------------------------
 # EN-TÊTE & NAVIGATION
 # -------------------------------------------------------------
 st.markdown('<div class="main-title">🏛️ Département de Génie Civil — Université de Tlemcen</div>', unsafe_allow_html=True)
-st.markdown('<div class="sub-title">Plateforme collaborative d\'expression des vœux et répartition des charges pédagogiques</div>', unsafe_allow_html=True)
+st.markdown('<div class="sub-title">Plateforme collaborative d'expression des vœux et répartition des charges pédagogiques</div>', unsafe_allow_html=True)
 
 nav = st.sidebar.radio("Espace de Travail", ["📝 Exprimer mes Vœux (Enseignant)", "🔐 Clôture & Arbitrage (Responsable)"])
 
-# URL Google Apps Script Webhook (À remplacer par votre URL exacte)
+# URL Google Apps Script Webhook
 GOOGLE_SHEET_WEBHOOK = "https://script.google.com/macros/s/AKfycbzT__iJP_nhS8OV9bNzWsXxvk5eiPKG9dWLlNQWPX1AGiVeMBRddFet4WVxmrXHdMvz1w/exec"
 
 def send_to_google_sheet(payload):
@@ -320,7 +344,6 @@ def send_to_google_sheet(payload):
 # =============================================================
 if nav == "📝 Exprimer mes Vœux (Enseignant)":
     
-    # 1. Mur public des validations
     with st.expander("📢 Mur des validations du Département (Suivi en direct)", expanded=False):
         st.caption("Ce mur indique les collègues ayant déjà validé leur formulaire. Le détail de vos choix reste strictement confidentiel.")
         if st.session_state["submissions_feed"]:
@@ -329,26 +352,25 @@ if nav == "📝 Exprimer mes Vœux (Enseignant)":
         else:
             st.info("Aucune soumission pour le moment.")
 
-    # 2. Formulaire principal
     with st.form("form_voeux_departement"):
         st.subheader("1. Identification de l'Enseignant")
-        c1, c2, c3 = st.columns(3)
+        c1, c2 = st.columns(2)
         with c1:
-            nom_prenom = st.text_input("Nom & Prénom *", placeholder="")
+            nom_prenom = st.text_input("Nom & Prénom *")
         with c2:
-            email = st.text_input("Email *", placeholder="")
+            email = st.text_input("Email Institutionnel *")
 
         st.markdown("---")
 
-        # 3. Panier Reconduction N-1
+        # 2. Panier Reconduction N-1
         st.subheader("2. Mon Panier Historique (Matières assurées l'an passé)")
         st.caption("Cochez les enseignements que vous assuriez l'an passé. Si une matière a déjà été clôturée par le département, elle apparaît verrouillée.")
 
         df_all = get_master_modules()
         locked = st.session_state["locked_modules"]
 
-        tab_l2, tab_l3, tab_m1_rib, tab_m2_rib, tab_m1_voa, tab_m2_voa, tab_m1_str, tab_m2_str, tab_ing1, tab_ing2, tab_ing3, tab_ing4 = st.tabs([
-            "📙 L2 GC", "📗 L3 GC", "🏢 M1 RIB", "🏬 M2 RIB", "🎓 M1 VOA", "🏛️ M2 VOA", "🏗️ M1 Str.", "🏢 M2 Str.", "📘 1ère Ing.", "📙 2ème Ing.", "📗 3ème Ing.", "📕 4ème Ing."
+        tab_l2, tab_l3, tab_m1_rib, tab_m2_rib, tab_m1_voa, tab_m2_voa, tab_m1_str, tab_m2_str, tab_ing1, tab_ing2, tab_ing3 = st.tabs([
+            "📙 L2 GC", "📗 L3 GC", "🏢 M1 RIB", "🏬 M2 RIB", "🎓 M1 VOA", "🏛️ M2 VOA", "🏗️ M1 Str.", "🏢 M2 Str.", "📘 1ère Ing.", "📙 2ème Ing.", "📗 3ème Ing."
         ])
 
         tabs_mapping = [
@@ -362,8 +384,7 @@ if nav == "📝 Exprimer mes Vœux (Enseignant)":
             (tab_m2_str, "Master 2 Structures"),
             (tab_ing1, "1ère Ingénieur"),
             (tab_ing2, "2ème Ingénieur"),
-            (tab_ing3, "3ème Ingénieur"),
-            (tab_ing4, "4ème Ingénieur")
+            (tab_ing3, "3ème Ingénieur")
         ]
 
         selected_historical = []
@@ -386,17 +407,15 @@ if nav == "📝 Exprimer mes Vœux (Enseignant)":
         df_sel_hist = pd.DataFrame(selected_historical)
         total_heures_reconduites = df_sel_hist["Volume_Hebdo"].sum() if not df_sel_hist.empty else 0.0
 
-        st.markdown(f"#### ⏱️ Total Panier Reconduit : `{total_heures_reconduites} h / {quota_cible} h`")
-        st.progress(min(1.0, total_heures_reconduites / quota_cible))
+        st.markdown(f"#### ⏱️ Volume Total Reconduit : `{total_heures_reconduites} h / semaine`")
 
         st.markdown("---")
 
-        # 4. Incitation & Vœux Nouvelles Matières / 4ème Ingénieur
-        st.subheader("3. 🌟 Nouvelles Formations & Matières Récents : Classement Obligatoire")
-        st.info("💡 **Incitation Départementale :** L'ouverture de la 4ème année Ingénieur et des nouveaux modules de Master nécessite l'engagement de tous. Pour valider votre formulaire, classez au minimum **2 choix ordonnés**.")
+        # 3. Nouvelles Matières, 4ème Ingénieur & Reverse Engineering
+        st.subheader("3. 🌟 Nouvelles Matières & 4ème Année Ingénieur : Classement Obligatoire")
+        st.info("💡 **Incitation Départementale :** Le choix ci-dessous regroupe l'ensemble des matières de la **4ème année Ingénieur (Nouvelle formation)**, les modules de **Reverse Engineering**, **Histoire de l'Algérie** et **Éthique & Déontologie**. Veuillez classer au minimum **2 choix ordonnés**.")
 
         df_new = df_all[df_all["Catégorie"] == "Nouvelle"]
-        # Filtrer les nouvelles matières non verrouillées
         df_new_open = df_new[~df_new["ID"].isin(locked)]
         options_new = ["-- Aucun choix --"] + [f"[{r['Parcours']}] {r['Matière']} ({r['Type']}) - {r['Volume_Hebdo']}h" for _, r in df_new_open.iterrows()]
 
@@ -408,13 +427,13 @@ if nav == "📝 Exprimer mes Vœux (Enseignant)":
         with v3:
             choix_3 = st.selectbox("🥉 3e Choix (Facultatif)", options_new, index=0)
 
-        # 5. Bandeau Nudge / Incitatif "Reverse Engineering"
+        # 4. Bandeau Nudge / Incitatif "Reverse Engineering"
         st.markdown("""
         <div class="nudge-card">
             <h4 style="margin:0 0 6px 0; color:#1e40af;">🚀 Focus Valorisation Pédagogique — Atelier Reverse Engineering (M2)</h4>
             <p style="margin:0; font-size:13px; color:#1e293b; line-height:1.5;">
-                Le module <strong>Reverse Engineering (Cours + Atelier)</strong> est un pilier pratique orienté diagnostic d’ouvrages, rétro-ingénierie et maquettes numériques.
-                <br>🎯 <em>Avantages :</em> Priorité d'arbitrage sur vos créneaux d'emploi du temps et priorité d'affectation sur les encadrements de PFE Master.
+                Le module <strong>Reverse Engineering (Cours + Atelier)</strong> est dispensé en M2 Structures, M2 VOA et M2 RIB.
+                <br>🎯 <em>Avantages :</em> Priorité d'arbitrage sur vos créneaux d'emploi du temps et sur l'encadrement des projets de fin d'études (PFE) Master.
             </p>
         </div>
         """, unsafe_allow_html=True)
@@ -423,12 +442,9 @@ if nav == "📝 Exprimer mes Vœux (Enseignant)":
 
         st.markdown("---")
 
-        # 6. Remarques, souhaits particuliers & Indisponibilités
+        # 5. Remarques, souhaits particuliers & Indisponibilités
         st.subheader("4. 💬 Souhaits Particuliers, Contraintes & Remarques")
-        commentaires = st.text_area(
-            "Exprimez ici un souhait particulier",
-            placeholder=""
-        )
+        commentaires = st.text_area("Observations éventuelles :")
 
         submitted = st.form_submit_button("🚀 Valider et Transmettre Définitivement mes Vœux", use_container_width=True)
 
@@ -436,18 +452,16 @@ if nav == "📝 Exprimer mes Vœux (Enseignant)":
             if not nom_prenom or not email:
                 st.error("❌ Veuillez renseigner votre Nom, Prénom et Email Institutionnel.")
             elif choix_1 == "-- Aucun choix --" or choix_2 == "-- Aucun choix --":
-                st.error("❌ Règle obligatoire : Veuillez classer au minimum vos choix 1 et 2 sur les nouvelles matières / 4ème Ingénieur.")
+                st.error("❌ Règle obligatoire : Veuillez classer au minimum vos choix 1 et 2 parmi les nouvelles matières.")
             elif choix_1 == choix_2:
                 st.error("❌ Vos choix 1 et 2 ne peuvent pas être identiques.")
             else:
                 timestamp_str = datetime.now().strftime("%d/%m/%Y à %H:%M")
                 
-                # Payload pour Google Sheet
                 payload = {
                     "timestamp": timestamp_str,
                     "nom": nom_prenom,
                     "email": email,
-                    "volume_cible": quota_cible,
                     "volume_reconduit": total_heures_reconduites,
                     "matieres_reconduites": [f"{r['Matière']} ({r['Parcours']} - {r['Type']} - {r['Groupe']})" for r in selected_historical],
                     "choix_nouveau_1": choix_1,
@@ -457,10 +471,8 @@ if nav == "📝 Exprimer mes Vœux (Enseignant)":
                     "remarques_souhaits": commentaires
                 }
 
-                # Envoi Google Sheet
                 send_to_google_sheet(payload)
 
-                # Ajout au mur public
                 st.session_state["submissions_feed"].append({
                     "nom": f"Dr. {nom_prenom}",
                     "date": timestamp_str,
@@ -476,7 +488,7 @@ if nav == "📝 Exprimer mes Vœux (Enseignant)":
 # =============================================================
 else:
     st.subheader("🔐 Espace Responsable Pédagogique — Clôture & Arbitrage des Attributions")
-    st.caption("Cette section permet au chef de département adjoint de valider définitivement l'attribution d'une matière à un enseignant et de la **clôturer** pour qu'aucun autre enseignant ne puisse la choisir en double.")
+    st.caption("Cette section permet de valider définitivement l'attribution d'une matière à un enseignant et de la clôturer pour éviter tout doublon.")
 
     pin_code = st.text_input("Code PIN Responsable :", type="password")
     if pin_code == "1234":
@@ -489,8 +501,8 @@ else:
             st.markdown("#### Attribuer et Clôturer un Enseignement")
             available_mods = df_all[~df_all["ID"].isin(st.session_state["locked_modules"])]
             mod_to_lock = st.selectbox("Sélectionner la matière à clôturer :", 
-                                       [f"[{r['Parcours']}] {r['Matière']} ({r['Type']}) - ID: {r['ID']}" for _, r in available_mods.iterrows()])
-            enseignant_assigne = st.text_input("Enseignant bénéficiaire :", placeholder="Ex: Dr. Dahhaoui Hachimi")
+                                       [f"[{r['Parcours']}] {r['Matière']} ({r['Type']} - {r['Groupe']}) - ID: {r['ID']}" for _, r in available_mods.iterrows()])
+            enseignant_assigne = st.text_input("Enseignant bénéficiaire :")
             
             if st.button("🔒 Valider l'Attribution & Clôturer"):
                 if enseignant_assigne and mod_to_lock:
