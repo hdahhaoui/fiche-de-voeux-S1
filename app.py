@@ -358,7 +358,7 @@ if nav == "📝 Exprimer mes Vœux (Enseignant)":
         with c1:
             nom_prenom = st.text_input("Nom & Prénom *")
         with c2:
-            email = st.text_input("Email Institutionnel *")
+            email = st.text_input("Email *")
 
         st.markdown("---")
 
