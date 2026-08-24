@@ -312,8 +312,8 @@ if "locked_modules" not in st.session_state:
 
 if "submissions_feed" not in st.session_state:
     st.session_state["submissions_feed"] = [
-        {"nom": "Dr. Benali Mohamed", "date": "24/08/2026 à 09:15", "statut": "Vœux enregistrés"},
-        {"nom": "Pr. Mansouri Fatima", "date": "24/08/2026 à 10:02", "statut": "Vœux enregistrés"}
+        {"nom": "Pr. Ras Abdelouahab", "date": "24/08/2026 à 09:15", "statut": "Vœux enregistrés"},
+        {"nom": "Pr. Bekkouche Abdelmalek", "date": "24/08/2026 à 10:02", "statut": "Vœux enregistrés"}
     ]
 
 # -------------------------------------------------------------
