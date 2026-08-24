@@ -449,7 +449,7 @@ if nav == "📝 Exprimer mes Vœux (Enseignant)":
         st.markdown("---")
 
         # 5. Remarques, souhaits particuliers & Indisponibilités
-        st.subheader("4. 💬 Souhaits Particuliers, Contraintes & Remarques")
+        st.subheader("4. 💬 Souhaits Particuliers & Remarques")
         commentaires = st.text_area("Observations éventuelles :")
 
         submitted = st.form_submit_button("🚀 Valider et Transmettre Définitivement mes Vœux", use_container_width=True)
